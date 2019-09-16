@@ -186,7 +186,7 @@ module.exports = class Instagram_profile{
 				console.log('smth wrong with JSON object, probably youre banned for 20 minutes at '+ new Date())
 				console.log(data)
 				console.log(error)
-				await this.close_browser();
+				await this.closeBrowser();
 				await new Promise(resolve => setTimeout(resolve, 1000*60*20));// sleep for 20 minutes
 				continue;
 
@@ -257,6 +257,7 @@ module.exports = class Instagram_profile{
 					await this.unfollowOne()
 				} catch (error) {
 					console.log(error)
+					await this.closeBrowser();
 					break
 				}
 				// await this.unfollow(this.data.currently_subscribed_to.shift())
@@ -270,6 +271,7 @@ module.exports = class Instagram_profile{
 				} catch (error) {
 					console.log(error)	
 					console.log('sleep for 10 hours')
+					await this.closeBrowser();
 					await new Promise(resolve => setTimeout(resolve, 1000*60*60*10)) //sleep 10 hours
 					break;
 				}				
