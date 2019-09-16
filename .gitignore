@@ -1,0 +1,10 @@
+scraped_accounts
+accounts_all.json
+node_modules
+profiles
+profiles.json
+test.js
+.vscode
+.next
+data
+data.rar
